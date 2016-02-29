@@ -1,0 +1,17 @@
+language: php
+install: true
+script: true
+deploy:
+  provider: s3
+  skip_cleanup: true
+  access_key_id: $AWS_ACCESS_ID
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: teegrif.com
+  acl: public_read
+  region: us-west-2
+  endpoint: teegrif.com.s3-website-us-west-2.amazonaws.com
+  on:
+    repo: presteege/teegrif.com
+notifications:
+  email:
+    on_failure: always
